@@ -1,10 +1,9 @@
 import React from "react";
-import Button from "@mui/material/Button";
 import { Stack } from "@mui/system";
 import { Link } from "react-router-dom";
 import logo from "../utils/Holy_Police_Logo.png";
-
-const VehicleRegistration = () => {
+import "./HomePage.css";
+const HomePage = () => {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
@@ -21,12 +20,12 @@ const VehicleRegistration = () => {
           justifyContent: "space-between",
         }}
       >
-        <Link style={{ padding: "45px" }}>
-          <img src={logo} alt="logo" height={300} />
+        <Link style={{ padding: "45px", marginTop: "20px" }}>
+          <img src={logo} alt="logo" height={300} id="hero-image" />
         </Link>
 
         <a
-          href="/vehicles"
+          href="/registervehicle"
           style={{
             backgroundColor: "#A02064",
             color: "#fff",
@@ -44,4 +43,4 @@ const VehicleRegistration = () => {
   );
 };
 
-export default VehicleRegistration;
+export default HomePage;

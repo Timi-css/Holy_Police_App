@@ -1,8 +1,7 @@
 import React from "react";
 import { Stack } from "@mui/system";
 import { Link } from "react-router-dom";
-import logo from "../utils/Holy_Police_Logo.png";
-
+import lock from "../utils/Lock.png";
 const NavBar = () => {
   return (
     <Stack
@@ -16,6 +15,18 @@ const NavBar = () => {
         justifyContent: "space-between",
       }}
     >
+      <Link
+        to="/"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          color: "#fff",
+          textDecoration: "none",
+        }}
+      >
+        <img src={lock} alt="lock" height={30} />
+      </Link>
+
       <Link
         to="/"
         style={{

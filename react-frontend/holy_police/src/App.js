@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NavBar, VehicleRegistration } from "./components";
+import { NavBar, HomePage, RegisterVehicle } from "./components";
 
 function App() {
   const [data, setData] = React.useState(null);
+  console.log(data);
 
   React.useEffect(() => {
     fetch("/api")
@@ -15,7 +16,8 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" exact element={<VehicleRegistration />} />
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/registervehicle" element={<RegisterVehicle />} />
       </Routes>
     </BrowserRouter>
   );
