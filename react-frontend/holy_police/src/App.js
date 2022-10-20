@@ -1,6 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NavBar, HomePage, RegisterVehicle } from "./components";
+import {
+  NavBar,
+  HomePage,
+  RegisterVehicle,
+  SuccessPage,
+  Login,
+  VehicleList,
+} from "./components";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -18,6 +25,9 @@ function App() {
       <Routes>
         <Route path="/" exact element={<HomePage />} />
         <Route path="/registervehicle" element={<RegisterVehicle />} />
+        <Route path="/successpage" element={<SuccessPage />} />
+        <Route path="/login:id" element={<Login />} />
+        <Route path="/vehiclelist" element={<VehicleList />} />
       </Routes>
     </BrowserRouter>
   );

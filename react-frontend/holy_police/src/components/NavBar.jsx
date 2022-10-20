@@ -36,10 +36,10 @@ const NavBar = () => {
           textDecoration: "none",
         }}
       >
-        Home
+        HOME
       </Link>
       <Link
-        to="/vehicles"
+        to="/login:id"
         style={{
           display: "flex",
           alignItems: "center",
@@ -47,7 +47,7 @@ const NavBar = () => {
           textDecoration: "none",
         }}
       >
-        Vehicles
+        VEHICLES
       </Link>
     </Stack>
   );

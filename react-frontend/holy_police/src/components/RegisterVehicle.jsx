@@ -1,16 +1,15 @@
 import React from "react";
 import { Stack } from "@mui/system";
-import { Box } from "@mui/material";
+import "./RegisterVehicle.css";
 
 const RegisterVehicle = () => {
-  const style = {
-    height: "35px",
-    marginBottom: "15px",
-    width: "500px",
-    display: "flex",
-    padding: "5px",
-    marginTop: "5px",
-  };
+  // const style = {
+  //
+
+  //   "@media screen and (maxWidth: 390px)": {
+  //     width: "200px",
+  //   },
+  // };
 
   return (
     <Stack
@@ -21,11 +20,26 @@ const RegisterVehicle = () => {
       justifyContent="center"
     >
       <h1>Register Your Vehicle</h1>
-      <input type="text" placeholder="Full Name" style={style} />
-      <input type="text" placeholder="Phone Number" style={style} />
-      <input type="text" placeholder="Number Plate" style={style} />
+      <input
+        id="registration-form"
+        type="text"
+        placeholder="Full Name"
+        // style={style}
+      />
+      <input
+        id="registration-form"
+        type="text"
+        placeholder="Phone Number"
+        // style={style}
+      />
+      <input
+        id="registration-form"
+        type="text"
+        placeholder="Number Plate"
+        // style={style}
+      />
       <a
-        href="/success"
+        href="/successpage"
         style={{
           backgroundColor: "#A02064",
           color: "#fff",
