@@ -1,19 +1,23 @@
 const Vehicle = require("../model/Vehicle");
 const router = require("express").Router();
 
-// CREATE
-router.post("/", async (req, res) => {
-  const newVehicle = new Vehicle({
-    FullName: req.body.FullName,
-    Phone: req.body.Phone,
-    NumberPlate: req.body.NumberPlate,
-  });
-
+// REGISTER
+router.post("/register", async (req, res) => {
+  const { FullName, Phone, NumberPlate } = req.body;
   try {
-    const savedVehicle = await newVehicle.save();
-    res.status(200).json(savedVehicle);
-  } catch (err) {
-    res.status(500).json(err);
+    const oldInfo = await Vehicle.findOne({ NumberPlate });
+
+    if (oldInfo) {
+      return res.json({ error: "Number Plate already exists" });
+    }
+    await Vehicle.create({
+      FullName,
+      Phone,
+      NumberPlate,
+    });
+    res.send({ status: "ok" });
+  } catch (error) {
+    res.send({ status: "User exits" });
   }
 });
 

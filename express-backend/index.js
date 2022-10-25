@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRoute = require("./routes/user");
 const vehicleRoute = require("./routes/vehicle");
+const cors = require("cors");
+
+app.use(cors());
 
 dotenv.config();
 
@@ -21,8 +24,12 @@ app.get("/api/test", () => {
 });
 
 app.use(express.json());
-app.use("/api/user", userRoute);
+app.use("/api/users", userRoute);
 app.use("/api/vehicles", vehicleRoute);
+
+app.get("/api", (req, res) => {
+  res.json({ message: "Backend is now connected to react" });
+});
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server is running...");
