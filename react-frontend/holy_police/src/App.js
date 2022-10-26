@@ -12,7 +12,6 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 
 function App() {
   const [data, setData] = React.useState(null);
-  console.log(data);
 
   React.useEffect(() => {
     fetch("/api")

@@ -1,9 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import "./VehicleList.css";
 
 const VehicleList = () => {
   const [name, setName] = useState([]);
+  const [query, setQuery] = useState("");
+  console.log(query);
 
   useEffect(() => {
     names();
@@ -18,11 +21,21 @@ const VehicleList = () => {
     <div
       style={{
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         marginTop: "20px",
       }}
     >
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search"
+          className="search"
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
+
       <table
         style={{
           borderBottom: "1px solid #999",
@@ -37,51 +50,32 @@ const VehicleList = () => {
             <th style={{ borderBottom: "4px solid black" }}>Plate Number</th>
             <th style={{ borderBottom: "4px solid black" }}>Contact</th>
           </tr>
-          {name.map((data) => {
-            return (
-              <tr
-                style={{
-                  borderBottom: "0.5px solid #000",
-                }}
-              >
-                <td
+          {name
+            .filter((data) => data.NumberPlate.toLowerCase().includes(query))
+            .map((data) => {
+              return (
+                <tr
                   style={{
-                    textAlign: "center",
-                    borderBottom: "0.5px solid #555",
+                    borderBottom: "0.5px solid #000",
+                  }}
+                >
+                  <td className="table-row">{data.FullName}</td>
 
-                    padding: "5px",
-                  }}
-                >
-                  {data.FullName}
-                </td>
-
-                <td
-                  style={{
-                    textAlign: "center",
-                    borderBottom: "0.5px solid #555",
-                    padding: "5px",
-                  }}
-                >
-                  {data.NumberPlate}
-                </td>
-                <td
-                  style={{
-                    borderBottom: "0.5px solid #555",
-                  }}
-                >
-                  <a
-                    href="/"
-                    style={{
-                      color: "#A02064",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {data.Phone}
-                  </a>
-                </td>
-              </tr>
-            );
-          })}
+                  <td className="table-row">{data.NumberPlate}</td>
+                  <td className="table-row">
+                    <a
+                      href="/"
+                      style={{
+                        color: " #a02064",
+                        textDecoration: "none",
+                      }}
+                    >
+                      {data.Phone}
+                    </a>
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div>
