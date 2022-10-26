@@ -45,8 +45,6 @@ router.post("/login", async (req, res) => {
     return res.json({ error: "Username Not Found" });
   }
 
-  console.log(password, user.password);
-
   if (bcrypt.compareSync(password, user.password)) {
     const token = jwt.sign({}, JWT_SECRET);
 
