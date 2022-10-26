@@ -8,6 +8,7 @@ import {
   Login,
   VehicleList,
 } from "./components";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -21,14 +22,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" exact element={<HomePage />} />
-        <Route path="/registervehicle" element={<RegisterVehicle />} />
-        <Route path="/successpage" element={<SuccessPage />} />
-        <Route path="/login:id" element={<Login />} />
-        <Route path="/vehiclelist" element={<VehicleList />} />
-      </Routes>
+      <ErrorBoundary>
+        <NavBar />
+        <Routes>
+          <Route path="/" exact element={<HomePage />} />
+          <Route path="/registervehicle" element={<RegisterVehicle />} />
+          <Route path="/successpage" element={<SuccessPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/vehiclelist" element={<VehicleList />} />
+        </Routes>
+      </ErrorBoundary>
     </BrowserRouter>
   );
 }

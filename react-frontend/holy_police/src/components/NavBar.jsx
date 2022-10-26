@@ -39,7 +39,7 @@ const NavBar = () => {
         HOME
       </Link>
       <Link
-        to="/login:id"
+        to="/login"
         style={{
           display: "flex",
           alignItems: "center",
