@@ -27,6 +27,8 @@ app.use(express.json());
 app.use("/api/users", userRoute);
 app.use("/api/vehicles", vehicleRoute);
 
+app.use("/sms", require("./routes/vehicle"));
+
 app.get("/api", (req, res) => {
   res.json({ message: "Backend is now connected to react" });
 });
