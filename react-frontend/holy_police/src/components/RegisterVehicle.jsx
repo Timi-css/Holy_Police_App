@@ -33,6 +33,9 @@ export default class RegisterVehicle extends Component {
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "vehicleRegister");
+        if (data === "") {
+          alert("Fields cannot be empty");
+        }
         if (data.status === "ok") {
           window.location.href = "/successpage";
         }
@@ -79,6 +82,7 @@ export default class RegisterVehicle extends Component {
               borderRadius: "5px",
               outline: "none",
               border: "none",
+              cursor: "pointer",
             }}
           >
             SUBMIT
