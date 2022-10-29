@@ -6,7 +6,6 @@ import "./VehicleList.css";
 const VehicleList = () => {
   const [name, setName] = useState([]);
   const [query, setQuery] = useState("");
-  console.log(query);
 
   useEffect(() => {
     names();
@@ -48,6 +47,7 @@ const VehicleList = () => {
           <tr style={{ borderBottom: "4px solid black" }}>
             <th style={{ borderBottom: "4px solid black" }}>Name</th>
             <th style={{ borderBottom: "4px solid black" }}>Plate Number</th>
+
             <th style={{ borderBottom: "4px solid black" }}>Contact</th>
           </tr>
           {name
@@ -62,9 +62,10 @@ const VehicleList = () => {
                   <td className="table-row">{data.FullName}</td>
 
                   <td className="table-row">{data.NumberPlate}</td>
+
                   <td className="table-row">
                     <a
-                      href="/"
+                      href={`sms: ${data.Phone}`}
                       style={{
                         color: " #a02064",
                         textDecoration: "none",
