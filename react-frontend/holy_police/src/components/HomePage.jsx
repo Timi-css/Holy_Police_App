@@ -25,7 +25,7 @@ const HomePage = () => {
         </Link>
 
         <a
-          href="/registervehicle"
+          href="/"
           style={{
             backgroundColor: "#A02064",
             color: "#fff",
